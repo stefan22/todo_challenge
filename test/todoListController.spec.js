@@ -7,15 +7,30 @@ describe('TodoListController', function() {
     todo = $controller('TodoListController');
   }));
 
-  it('initialises with an empty search result and term', function() {
-    expect(todo.listItems).toBeUndefined();
-    expect(todo.listTerm).toBeUndefined();
-  });
-
-  it('should have no items to begin with', function() {
-    expect(todo.listItems.length).toBe(0);
+  it('initializes with an empty array', function() {
+    expect(todo.list).toBeUndefined();
+    expect(todo.term).toBeUndefined();
   });
 
 
+  describe('when adding a list item', function() {
 
-});
+    var items = [
+
+      { "name": "buy milk" },
+      { "name": "walk dog" },
+      { "name": "read book"}
+
+    ];
+
+    it('displays list items', function() {
+      todo.term = 'bananas';
+      todo.doAdd();
+      expect(todo.list.items).toEqual(items);
+    });
+
+  }); //when adding a list item
+
+
+
+}); //TodoListController

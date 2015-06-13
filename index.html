@@ -2,7 +2,7 @@
 <html lang="en" ng-app="TodoList">
   <head>
     <meta charset="utf-8">
-    <title>Github user search</title>
+    <title>To do list</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -12,21 +12,24 @@
   </head>
 
   <body ng-controller="TodoListController as listItems">
-    <div>
-      <form class="form-horizontal">
-        <input type="text" >
-        <button class="btn">Search</button>
-      </form>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <img src="https://avatars.githubusercontent.com/u/469160?v=3&s=50">
-          <a href="https://github.com/antonydenyer">antonydenyer</a>
-        </li>
-        <li class="list-group-item">
-          <img src="https://avatars.githubusercontent.com/u/30216?v=3&s=50">
-          <a href="https://github.com/tansaku">tansaku</a>
-        </li>
-      </ul>
-    </div>
+    <header>
+      <h1>To do List</h1>
+    </header>
+    <section class="mainContainer">
+          <div id="formtop">
+              <form class="form-horizontal">
+                <input type="text" name="toAdd" id="toAdd" autofocus
+                       placeholder="enter item..."/>
+                <input type="submit" name="addItem" id="addItem" value="Add Item"
+                       ng-click="listItems.doAdd()" />
+              </form>
+          </div>
+          <section id="formbottom">
+              <ul id="listItems" class="list-group" ng-repeat="item in listItems.list.items">
+                  <li>{{item.name}}</li>
+              </ul>
+              <p id="doClearAll"><a id="clearAll" href="javascript:void();">Clear All</a></p>
+        </section>
+    </section>
   </body>
 </html>
