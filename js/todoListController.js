@@ -1,22 +1,24 @@
-myApp.controller('TodoListController', [function() {
+myApp.controller('TodoListController', ['$resource', function($resource) {
+
   var self = this;
 
+  self.allItems = [];
+
   self.doAdd = function() {
-    self.list = {
+    self.listResult = {
 
       "items": [
-
-        { "name": "buy milk" },
-        { "name": "walk dog" },
-        { "name": "read book"}
-
+        {"name": self.listTerm }
       ]
-
 
     };
 
-  }; //doAdd
+    self.allItems.push(self.listTerm);
+    
+    console.log(self.listTerm);
+    console.log(self.allItems);
+  };
 
-
+console.log(self.allItems);
 
 }]); //TodoListController

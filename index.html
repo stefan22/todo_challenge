@@ -18,15 +18,17 @@
     <section class="mainContainer">
           <div id="formtop">
               <form class="form-horizontal">
-                <input type="text" name="toAdd" id="toAdd" autofocus
+                <input type="text" name="toAdd" id="toAdd" autofocus ng-model="listItems.listTerm"
                        placeholder="enter item..."/>
                 <input type="submit" name="addItem" id="addItem" value="Add Item"
-                       ng-click="listItems.doAdd()" />
+                       ng-click="listItems.doAdd();" />
               </form>
           </div>
           <section id="formbottom">
-              <ul id="listItems" class="list-group" ng-repeat="item in listItems.list.items">
-                  <li>{{item.name}}</li>
+              <ul id="listItems" class="list-group">
+                  <li class="lista" ng-repeat="item in listItems.allItems">
+                    <h4>{{item.listTerm }}</h4>
+                  </li>
               </ul>
               <p id="doClearAll"><a id="clearAll" href="javascript:void();">Clear All</a></p>
         </section>
